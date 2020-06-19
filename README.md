@@ -17,6 +17,7 @@ Commit message was not upstreamed due to there have confidential information in 
 Confidential information was removed and upstreamed as a whole project.
 
 list the contributors for the previous commits:  
+Jingdong Lu
 Tian Baofeng  
 Chen, Xiao X  
 zhouji3x  
