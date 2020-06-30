@@ -26,8 +26,9 @@ jobs:
     - name: Mirror the Github organization repos to Coding.
       uses: jingdlu/hub-mirror-action@master
       with:
-        src: github/jingdlu
+        src: github/projectceladon
         dst: coding/projectceladon
         dst_key: ${{ secrets.CODING_PRIVATE_KEY }}
         dst_token:  ${{ secrets.CODING_TOKEN }}
+        account_type: org
         cache_path: /github/workspace/jingdlu_log_capture-cache
