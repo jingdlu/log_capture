@@ -31,4 +31,5 @@ jobs:
         dst_key: ${{ secrets.CODING_PRIVATE_KEY }}
         dst_token:  ${{ secrets.CODING_TOKEN }}
         account_type: org
+        black_list: "celadon-binary"
         cache_path: /github/workspace/jingdlu_log_capture-cache
