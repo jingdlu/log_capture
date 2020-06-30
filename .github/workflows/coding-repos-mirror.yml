@@ -17,17 +17,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Cache kunpengcompute src repos
+    - name: Cache projectceladon src repos
       uses: actions/cache@v1
       with:
         path: /home/runner/work/jingdlu_log_capture/jingdlu_log_capture/jingdlu_log_capture-cache
         key: ${{ runner.os }}-jingdlu_log_capture-repos-cache
 
-    - name: Mirror the Github organization repos to Gitee.
-      uses: Yikun/hub-mirror-action@v0.05
+    - name: Mirror the Github organization repos to Coding.
+      uses: jingdlu/hub-mirror-action@master
       with:
         src: github/jingdlu
-        dst: gitee/projectceladon
-        dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
-        dst_token:  ${{ secrets.GITEE_TOKEN }}
+        dst: coding/projectceladon
+        dst_key: ${{ secrets.CODING_PRIVATE_KEY }}
+        dst_token:  ${{ secrets.CODING_TOKEN }}
         cache_path: /github/workspace/jingdlu_log_capture-cache
