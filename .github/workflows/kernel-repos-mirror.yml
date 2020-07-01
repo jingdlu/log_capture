@@ -1,4 +1,4 @@
-name: Coding repos mirror periodic job
+name: Kernel repos mirror periodic job
 
 on:
   push:
@@ -17,13 +17,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Cache projectceladon src repos
+    - name: Cache projectceladon kernel src repos
       uses: actions/cache@v1
       with:
-        path: /home/runner/work/jingdlu_log_capture/jingdlu_log_capture/jingdlu_log_capture-cache
-        key: ${{ runner.os }}-jingdlu_log_capture-repos-cache
+        path: /home/runner/work/jingdlu_kernel_mirror/jingdlu_kernel_mirror/jingdlu_kernel_mirror-cache
+        key: ${{ runner.os }}-jingdlu_kernel_mirror-cache
 
-    - name: Mirror the Github organization repos to Coding.
+    - name: Mirror the Github organization kernel repos to Coding.
       uses: jingdlu/hub-mirror-action@master
       with:
         src: github/projectceladon
@@ -31,5 +31,5 @@ jobs:
         dst_key: ${{ secrets.CODING_PRIVATE_KEY }}
         dst_token:  ${{ secrets.CODING_TOKEN }}
         account_type: org
-        black_list: "celadon-binary,linux-intel-lts2019-chromium,linux-intel-lts2019-yocto,linux-intel-lts,device-androidia-kernel,mainline-tracking"
-        cache_path: /github/workspace/jingdlu_log_capture-cache
+        static_list: "linux-intel-lts2019-chromium,linux-intel-lts2019-yocto,linux-intel-lts,device-androidia-kernel,mainline-tracking"
+        cache_path: /github/workspace/jingdlu_kernel_mirror-cache
