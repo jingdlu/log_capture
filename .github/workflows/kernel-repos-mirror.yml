@@ -7,9 +7,9 @@ on:
     - '.github/workflows/**'
     # Runs at every pull requests submitted in master branch 
     branches: [ master ]
-    #schedule:
+  schedule:
     # Runs at 01:00 UTC (9:00 AM Beijing) every day
-    #- cron:  '0 1 * * *'
+    - cron:  '0 1 * * *'
 
 jobs:
   build:
@@ -21,7 +21,7 @@ jobs:
       uses: actions/cache@v1
       with:
         path: /home/runner/work/jingdlu_kernel_mirror/jingdlu_kernel_mirror/jingdlu_kernel_mirror-cache
-        key: ${{ runner.os }}-jingdlu_kernel_mirror-cache
+        key: ${{ runner.os }}-jingdlu_kernel_mirror-repos-cache
 
     - name: Mirror the Github organization kernel repos to Coding.
       uses: jingdlu/hub-mirror-action@master

@@ -7,9 +7,9 @@ on:
     - '.github/workflows/**'
     # Runs at every pull requests submitted in master branch 
     branches: [ master ]
-    #schedule:
+  schedule:
     # Runs at 01:00 UTC (9:00 AM Beijing) every day
-    #- cron:  '0 1 * * *'
+    - cron:  '0 1 * * *'
 
 jobs:
   build:
@@ -20,8 +20,8 @@ jobs:
     - name: Cache projectceladon src repos
       uses: actions/cache@v1
       with:
-        path: /home/runner/work/jingdlu_log_capture/jingdlu_log_capture/jingdlu_log_capture-cache
-        key: ${{ runner.os }}-jingdlu_log_capture-repos-cache
+        path: /home/runner/work/jingdlu_coding_mirror/jingdlu_coding_mirror/jingdlu_coding_mirror-cache
+        key: ${{ runner.os }}-jingdlu_coding_mirror-repos-cache
 
     - name: Mirror the Github organization repos to Coding.
       uses: jingdlu/hub-mirror-action@master
@@ -32,4 +32,4 @@ jobs:
         dst_token:  ${{ secrets.CODING_TOKEN }}
         account_type: org
         black_list: "celadon-binary,linux-intel-lts2019-chromium,linux-intel-lts2019-yocto,linux-intel-lts,device-androidia-kernel,mainline-tracking"
-        cache_path: /github/workspace/jingdlu_log_capture-cache
+        cache_path: /github/workspace/jingdlu_coding_mirror-cache
