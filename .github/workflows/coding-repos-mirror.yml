@@ -30,6 +30,7 @@ jobs:
         dst: coding/projectceladon
         dst_key: ${{ secrets.CODING_PRIVATE_KEY }}
         dst_token:  ${{ secrets.CODING_TOKEN }}
+        force_update: true
         account_type: org
         black_list: "celadon-binary,linux-intel-lts2019-chromium,linux-intel-lts2019-yocto,linux-intel-lts,device-androidia-kernel,mainline-tracking"
         cache_path: /github/workspace/jingdlu_coding_mirror-cache
